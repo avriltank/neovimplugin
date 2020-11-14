@@ -76,7 +76,7 @@ if !exists('MRU_Filename_Format')
 endif
 
 let s:mru_list_locked = 0
-let g:MRU_File = g:bpath.'/bundle/mymru/tempmru.txt'
+let g:MRU_File = '/neovimplugin/tempmru.txt'
 
 let s:MRU_files = []
 let s:oldwinid=-1

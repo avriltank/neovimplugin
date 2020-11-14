@@ -10,5 +10,8 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/pathogen.vim --create-dirs \
        https://tpo.pe/pathogen.vim'
 chmod 777 /neovim/nvim
+echo 'export PATH=$PATH:/neovimplugin' >> /etc/profile
+source /etc/profile
+
 mkdir -p ~/.config/nvim
 cp /neovimplugin/init.vim  ~/.config/nvim/init.vim

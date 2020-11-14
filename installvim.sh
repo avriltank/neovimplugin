@@ -1,6 +1,7 @@
 #cd /
 #git clone https://github.com/avriltank/neovimplugin
 
+sudo yum -y install yum-utils
 sudo yum-config-manager --add-repo=https://copr.fedorainfracloud.org/coprs/carlwgeorge/ripgrep/repo/epel-7/carlwgeorge-ripgrep-epel-7.repo
 sudo yum install ripgrep
 
@@ -9,8 +10,14 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/pathogen.vim --create-dirs \
        https://tpo.pe/pathogen.vim'
-/neovimplugin/nvim --appimage-extract
-./squashfs-root/usr/bin/nvim
+
+yum --enablerepo=epel -y install fuse-sshfs # install from EPEL
+user="$(whoami)"
+usermod -a -G fuse "$user" 
+
+chmod 777 /neovimplugin/nvim
+echo 'export PATH=$PATH:/neovimplugin' >> /etc/profile
+source /etc/profile
 
 mkdir -p ~/.config/nvim
 cp /neovimplugin/init.vim  ~/.config/nvim/init.vim

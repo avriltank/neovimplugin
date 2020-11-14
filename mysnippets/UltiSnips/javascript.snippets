@@ -1,0 +1,129 @@
+snippet log
+console.log(${1});
+endsnippet
+snippet valid
+$("#chenfaform").validate({
+		onfocusout:function(element){ 
+			$(element).valid(); 
+		},
+		rules:{
+			phone:{
+				remote:{
+					url:'index.php?m=dladmin&c=hehuoren&a=xufei',
+					type:'post',
+					datatype:'json',
+					data:{
+						phone:function(){
+							return $('#phone').val();
+						}
+					},
+					dataFilter:function(data, type){
+						if (data == "true")
+							return true;
+						else
+							return false;
+					}
+				}
+			}
+		}
+});
+endsnippet
+snippet valids
+$("#chenfaform").validate({
+		onfocusout:function(element){ 
+			$(element).valid(); 
+		},
+		rules:{
+			phone:{
+				remote:{
+					url:'index.php?m=dladmin&c=hehuoren&a=xufei',
+					type:'post',
+					datatype:'json',
+					data:{
+						phone:function(){
+							return $('#phone').val();
+						}
+					},
+					dataFilter:function(data, type){
+						if (data == "true")
+							return true;
+						else
+							return false;
+					}
+				}
+			}
+		},
+		messages:{
+			phone:{
+				remote:'err'
+			}
+		}
+});
+endsnippet
+snippet ready
+$(function(){
+	${1}
+});
+endsnippet
+snippet imguploadjs
+$(function() {
+    $('#file_upload').uploadify({
+        'swf'      : SCOPE.ajax_upload_swf,
+        'uploader' : SCOPE.ajax_upload_image_url,
+        'buttonText': '上传图片',
+        'fileTypeDesc': 'Image Files',
+        'fileObjName' : 'file',
+        //允许上传的文件后缀
+        'fileTypeExts': '*.gif; *.jpg; *.png',
+        'onUploadSuccess' : function(file,data,response) {
+            // response true ,false
+            if(response) {
+                var obj = JSON.parse(data); //由JSON字符串转换为JSON对象
+
+                console.log(data);
+                $('#' + file.id).find('.data').html(' 上传完毕');
+
+                $("#upload_org_code_img").attr("src",obj.data);
+                $("#file_upload_image").attr('value',obj.data);
+                $("#upload_org_code_img").show();
+            }else{
+                alert('上传失败');
+            }
+        },
+    });
+});
+endsnippet
+snippet timejs
+var today = new Date();
+var format_td = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+$('#chenfapicker').datetimepicker({
+	format: 'yyyy-mm-dd',
+	language: 'zh-CN',
+	maxView: 3,
+	minView: 2,//只能选择到日期
+	startView: 3, //从月份开始选择
+	startDate: format_td,
+	pickerPosition: 'top-left'
+});
+endsnippet
+snippet timehtml
+<div class="form-group">
+	<label class="col-md-5 control-label">选择到期时间：</label>
+	<!--指定 date标记-->
+	<div class='input-group date col-md-5' id='chenfapicker'>
+		<input type='text' class="form-control form_datetime" id="chentime"/>
+		<span class="input-group-addon">
+			<span class="glyphicon glyphicon-calendar"></span>
+		</span>
+	</div>
+</div>
+endsnippet
+snippet defaulttime
+date_default_timezone_set("prc");  
+//date("Y-m-d H:i:s",1573365418) = "2019-11-10 13:56:58"  
+//strtotime("2019-11-10 13:56:58") = 1573365418
+endsnippet
+snippet timecha
+timediff(1573365418,1573344724)
+//相差5小时
+endsnippet

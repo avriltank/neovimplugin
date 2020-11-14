@@ -1,0 +1,62 @@
+snippet construct
+	public function __construct() {
+		parent::__construct();
+		$this->_init();
+	}
+	private function _init() {
+	}
+snippet php
+	<?php
+		${1}
+	?>
+snippet foreach
+	foreach(${1} as ${2}){
+		${3}
+	}
+snippet ebr
+	echo '<br/>';
+snippet controller
+	<?php
+	namespace app\admin\controller;
+	use think\Controller;
+
+	class ${1} extends Controller {
+		${2}
+	}
+snippet defaulttime
+	date_default_timezone_set("prc");  
+	//date("Y-m-d H:i:s",1573365418) = "2019-11-10 13:56:58"  
+	//strtotime("2019-11-10 13:56:58") = 1573365418
+snippet chenfa
+	// +----------------------------------------------------------------------
+	// | chenfaswoole自己利用空余时间，写的一套高仿tp5用的高性能框架
+	// +----------------------------------------------------------------------
+	// | 版权所有 2020~2021 陈发
+	// +----------------------------------------------------------------------
+	// | 联系qq: 	( 314419183 )
+	// +----------------------------------------------------------------------
+	// | 联系电话： ( 19112844478 )
+	// +----------------------------------------------------------------------
+snippet page
+	if($this->request->isGet()){
+		$getArr = input('get.');
+		$tempM = db('test');
+		$sarr = [];
+		if(empty($getArr)){
+			$sarr = db('test')->paginate(4,false,['query'=>request()->param()]);
+		}else{
+			foreach($getArr as $k=>$v){
+				if($k=='page') continue;
+				if(empty($v)) continue;
+				if($k=='regdate'){
+					$tempM = $tempM->where($k,'>= time',$v);
+				}elseif($k=='lastdate'){
+					$tempM = $tempM->where($k,'<= time',$v);
+				}else{ 
+					$tempM = $tempM->where($k,'like','%'.$v.'%');
+				}
+			}
+			$sarr = $tempM->paginate(4,false,['query'=>request()->param()]);
+		}
+		return view('',['sarr'=>$sarr]);
+	}

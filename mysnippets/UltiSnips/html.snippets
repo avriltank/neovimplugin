@@ -1,0 +1,357 @@
+snippet html
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>${2}</title>
+	</head>
+	<body>
+		${1}
+	</body>
+</html>
+endsnippet
+snippet style
+<style type="text/css">
+	${1}
+</style>
+endsnippet
+snippet scripts
+<script type="text/javascript" src="${1}">
+	${2}
+</script>
+endsnippet
+snippet script
+<script type="text/javascript">
+	${1}
+</script>
+endsnippet
+snippet linkcss 
+<link rel="stylesheet" href="${1}" type="text/css" /> 
+endsnippet
+snippet table
+<table>
+	<tr>
+		<td>${1}</td>
+	</tr>
+</table>
+endsnippet
+snippet tr
+<tr>${1}</tr>
+endsnippet
+snippet td
+<td>${1}</td>
+endsnippet
+snippet img
+<img src="${1}" />
+endsnippet
+snippet div
+<div>
+	${1}
+</div>
+endsnippet
+snippet hr
+<hr/>
+endsnippet
+snippet form
+<form action="${1}" method="${2}">
+	${3}
+</form>
+endsnippet
+snippet frameset
+<frameset cols="${1}%,${2}%${3}%">
+	<frame src="${4}" />
+	<frame src="${5}" />
+	<frame src="${6}" />
+</frameset>
+endsnippet
+snippet iframe
+<iframe src="${1}">${2}</iframe>
+endsnippet
+snippet map
+<map name="${1}" id="${2}">
+	<area shape="circle" coords="180,139,14" href ="" alt="" />
+	<area shape="circle" coords="129,161,10" href ="" alt="" />
+	<area shape="rect" coords="0,0,110,260" href ="" alt="" />
+</map>
+endsnippet
+snippet area
+<area shape="${1}" coords="${2}" href="${3}" alt="${4}"/>
+endsnippet
+snippet b
+<b>${1}</b>
+endsnippet 
+snippet p
+<p>
+	${1}
+</p>
+endsnippet 
+snippet h1
+<h1>${1}</h1>
+endsnippet
+snippet h2
+<h2>${1}</h2>
+endsnippet
+snippet h3
+<h3>${1}</h3>
+endsnippet
+snippet h4
+<h4>${1}</h4>
+endsnippet
+snippet h5
+<h5>${1}</h5>
+endsnippet
+snippet br
+<br />
+endsnippet
+snippet button
+<button type="button">${1}</button>
+endsnippet
+snippet inputtext
+<input type="text" name="${1}">
+endsnippet
+snippet inputpwd
+<input type="password" name="${1}">
+endsnippet
+snippet inputcheck
+<input type="checkbox" name="${1}">
+endsnippet
+snippet inputradio
+<input type="radio" checked="${3:checked}" name="${1}" value="${2}">
+endsnippet
+snippet select
+<select>
+	<option value="${1}">${2}</option>
+	<option value="${3}" selected="selected">${4}</option>
+</select>
+endsnippet
+snippet textarea
+<textarea rows="${1}" cols="${2}">
+endsnippet
+snippet inputbutton
+<input type="button" class="btn btn-default" value="${1}" id="btnchenfa">
+endsnippet
+snippet submit
+<input type="submit" value="${1}">
+endsnippet
+snippet ol
+<ol>
+	<li>${1}</li>
+</ol>
+endsnippet
+snippet ul
+<ul>
+	<li>${1}</li>
+</ul>
+endsnippet
+snippet li
+<li>${1}</li>
+endsnippet
+snippet valid
+$("#chenfaform").validate({
+		onfocusout:function(element){ 
+			$(element).valid(); 
+		},
+		rules:{
+			phone:{
+				remote:{
+					url:'index.php?m=dladmin&c=hehuoren&a=xufei',
+					type:'post',
+					datatype:'json',
+					data:{
+						phone:function(){
+							return $('#phone').val();
+						}
+					},
+					dataFilter:function(data, type){
+						if (data == "true")
+							return true;
+						else
+							return false;
+					}
+				}
+			}
+		}
+});
+endsnippet
+snippet valids
+$("#chenfaform").validate({
+		onfocusout:function(element){ 
+			$(element).valid(); 
+		},
+		rules:{
+			phone:{
+				remote:{
+					url:'index.php?m=dladmin&c=hehuoren&a=xufei',
+					type:'post',
+					datatype:'json',
+					data:{
+						phone:function(){
+							return $('#phone').val();
+						}
+					},
+					dataFilter:function(data, type){
+						if (data == "true")
+							return true;
+						else
+							return false;
+					}
+				}
+			}
+		},
+		messages:{
+			phone:{
+				remote:'err'
+			}
+		}
+});
+endsnippet
+snippet container
+	<div class="container">
+	</div>
+endsnippet
+snippet containers
+	<div class="containers">
+		<div class="row">
+		</div>
+	</div>
+endsnippet
+snippet	oll
+<ol class="breadcrumb">
+	<li>
+		<i class="fa fa-dashboard"></i>  <a href="#"></a>
+	</li>
+	<li class="active">
+		<i class="fa fa-edit"></i>
+	</li>
+</ol>
+endsnippet
+snippet formb
+	<form class="form-horizontal" id="chenfaform">
+		<div class="form-group">
+		</div>
+	</form>
+endsnippet
+snippet formgroup
+	<div class="form-group">
+	</div>
+endsnippet
+snippet inputcontrol
+	<input name="" class="form-control" placeholder="" >
+endsnippet
+snippet divoffset
+	<div class="col-sm-offset-5 col-sm-10">
+	</div>
+endsnippet
+snippet label
+	<label for="name" class="col-sm-5 control-label"></label>
+endsnippet
+snippet selectbb
+<div class="col-md-3">
+	<div class="input-group">
+		<span class="input-group-addon">筛选条件</span>
+		<select class="form-control" name="catid">
+			<option value='' ></option>
+			<option value='' ></option>
+		</select>
+	</div>
+</div>
+endsnippet
+snippet search
+<div class="col-md-3">
+	<div class="form-control">
+		<input class="form-control" name="" type="text" value="" placeholder="搜索内容" />
+		<span class="input-group-btn">
+			<button id="sub_data" type="submit" class="btn btn-primary">
+				<i class="glyphicon glyphicon-search"></i>
+			</button>
+		</span>
+	</div>
+</div>
+endsnippet
+snippet tablebb
+	<div class="table-responsive">
+		<table class="table table-bordered table-hover singcms-table">
+			<thead>
+				<th></th>
+				<th></th>
+			</thead>
+			<tbody>
+				<td></td>
+				<td></td>
+			</tbody>
+		</table>
+	</div>
+endsnippet
+snippet ready
+$(function(){
+	${1}
+});
+endsnippet
+snippet imgupload
+<div class="form-group">
+	<label for="inputname" class="col-sm-2 control-label">缩图:</label>
+	<div class="col-sm-5">
+		<input id="file_upload"  type="file" multiple="true" >
+		<img style="display: none" id="upload_org_code_img" src="" width="150" height="150">
+		<input id="file_upload_image" name="thumb" type="hidden" multiple="true" value="">
+	</div>
+</div>
+endsnippet
+snippet imguploadjs
+$(function() {
+    $('#file_upload').uploadify({
+        'swf'      : SCOPE.ajax_upload_swf,
+        'uploader' : SCOPE.ajax_upload_image_url,
+        'buttonText': '上传图片',
+        'fileTypeDesc': 'Image Files',
+        'fileObjName' : 'file',
+        //允许上传的文件后缀
+        'fileTypeExts': '*.gif; *.jpg; *.png',
+        'onUploadSuccess' : function(file,data,response) {
+            // response true ,false
+            if(response) {
+                var obj = JSON.parse(data); //由JSON字符串转换为JSON对象
+
+                console.log(data);
+                $('#' + file.id).find('.data').html(' 上传完毕');
+
+                $("#upload_org_code_img").attr("src",obj.data);
+                $("#file_upload_image").attr('value',obj.data);
+                $("#upload_org_code_img").show();
+            }else{
+                alert('上传失败');
+            }
+        },
+    });
+});
+endsnippet
+snippet timejs
+var today = new Date();
+var format_td = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+$('#chenfapicker').datetimepicker({
+	format: 'yyyy-mm-dd',
+	language: 'zh-CN',
+	maxView: 3,
+	minView: 2,//只能选择到日期
+	startView: 3, //从月份开始选择
+	startDate: format_td,
+	pickerPosition: 'top-left'
+});
+endsnippet
+snippet timehtml
+<div class="form-group">
+	<label class="col-md-5 control-label">选择到期时间：</label>
+	<!--指定 date标记-->
+	<div class='input-group date col-md-5' id='chenfapicker'>
+		<input type='text' class="form-control form_datetime" id="chentime"/>
+		<span class="input-group-addon">
+			<span class="glyphicon glyphicon-calendar"></span>
+		</span>
+	</div>
+</div>
+endsnippet
+snippet timecha
+timediff(1573365418,1573344724)
+//相差5小时
+endsnippet

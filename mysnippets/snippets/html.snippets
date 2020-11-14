@@ -1,0 +1,199 @@
+snippet html
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="UTF-8" />
+			<meta name="viewport" content="width=device-width" />
+			<title>${2}</title>
+		</head>
+		<body>
+			${1}
+		</body>
+		<script src="../src/layui.js"></script>
+	</html>
+snippet layuihtml
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+			<title>${2}</title>
+			<link rel="stylesheet" href="../layui/css/layui.css">
+		</head>
+		<body>
+			${1}
+		</body>
+		<script src="../layui/layui.all.js"></script>
+	</html>
+snippet style
+	<style type="text/css">
+		${1}
+	</style>
+snippet scripts
+	<script type="text/javascript" src="${1}">
+		${2}
+	</script>
+snippet script
+	<script type="text/javascript">
+		${1}
+	</script>
+snippet linkcss 
+	<link rel="stylesheet" href="${1}" type="text/css" /> 
+snippet table
+	<table>
+		<tr>
+			<td>${1}</td>
+		</tr>
+	</table>
+snippet tr
+	<tr>${1}</tr>
+snippet td
+	<td>${1}</td>
+snippet img
+	<img src="${1}" />
+snippet div
+	<div>
+		${1}
+	</div>
+snippet hr
+	<hr/>
+snippet form
+	<form action="${1}" method="${2}">
+		${3}
+	</form>
+snippet frameset
+	<frameset cols="${1}%,${2}%${3}%">
+		<frame src="${4}" />
+		<frame src="${5}" />
+		<frame src="${6}" />
+	</frameset>
+snippet iframe
+	<iframe src="${1}">${2}</iframe>
+snippet map
+	<map name="${1}" id="${2}">
+		<area shape="circle" coords="180,139,14" href ="" alt="" />
+		<area shape="circle" coords="129,161,10" href ="" alt="" />
+		<area shape="rect" coords="0,0,110,260" href ="" alt="" />
+	</map>
+snippet area
+	<area shape="${1}" coords="${2}" href="${3}" alt="${4}"/>
+snippet b
+	<b>${1}</b>
+snippet p
+	<p>
+		${1}
+	</p>
+snippet h1
+	<h1>${1}</h1>
+snippet h2
+	<h2>${1}</h2>
+snippet h3
+	<h3>${1}</h3>
+snippet h4
+	<h4>${1}</h4>
+snippet h5
+	<h5>${1}</h5>
+snippet br
+	<br />
+snippet button
+	<button type="button">${1}</button>
+snippet inputtext
+	<input type="text" name="${1}">
+snippet inputpwd
+	<input type="password" name="${1}">
+snippet inputcheck
+	<input type="checkbox" name="${1}">
+snippet inputradio
+	<input type="radio" checked="${3:checked}" name="${1}" value="${2}">
+snippet select
+	<select>
+		<option value="${1}">${2}</option>
+		<option value="${3}" selected="selected">${4}</option>
+	</select>
+snippet textarea
+	<textarea rows="${1}" cols="${2}">
+snippet inputbutton
+	<input type="button" value="${1}">
+snippet submit
+	<input type="submit" value="${1}">
+snippet ol
+	<ol>
+		<li>${1}</li>
+	</ol>
+snippet ul
+	<ul>
+		<li>${1}</li>
+	</ul>
+snippet li
+	<li>${1}</li>
+snippet chenfahtml
+	<!--
+	 +----------------------------------------------------------------------
+	 | chenfademo
+	 +----------------------------------------------------------------------
+	 | 版权所有 2019~2020 陈发
+	 +----------------------------------------------------------------------
+	 | 联系qq: 	( 314419183 )
+	 +----------------------------------------------------------------------
+	 | 联系电话： ( 17784233703 )
+	 +----------------------------------------------------------------------
+	 -->
+snippet layuicdn
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<title>u8试客</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<meta name="u8试客" content="u8试客">
+
+		<link rel="stylesheet" href="https://www.layuicdn.com/layui/css/layui.css" /> 
+
+	</head>
+	<body>
+
+
+	<script src="https://cdn.bootcdn.net/ajax/libs/layui/2.5.6/layui.all.min.js"></script>
+	<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+	<script src="https://cdn.bootcdn.net/ajax/libs/jquery.serializeJSON/2.9.0/jquery.serializejson.min.js"></script>
+
+	<script type="text/javascript">
+		  
+	</script>
+
+	</body>
+	</html>
+snippet htmlvue
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<title>u8试客</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<meta name="u8试客" content="u8试客">
+
+		<link rel="stylesheet" href="https://www.layuicdn.com/layui/css/layui.css" /> 
+        <!-- 引入样式 -->
+        <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+
+	</head>
+	<body>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+	<!--<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>-->
+	<!--<script type="module">-->
+	  <!--import Vue from 'https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.esm.browser.js'-->
+	<!--</script>-->
+	<!--<script src="https://cdn.bootcdn.net/ajax/libs/layui/2.5.6/layui.all.min.js"></script>-->
+	<!--<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>-->
+	<!--<script src="https://cdn.bootcdn.net/ajax/libs/jquery.serializeJSON/2.9.0/jquery.serializejson.min.js"></script>-->
+
+	<script type="text/javascript">
+		  
+	</script>
+
+	</body>
+	</html>

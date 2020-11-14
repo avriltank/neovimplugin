@@ -1,0 +1,74 @@
+snippet tern
+	{
+
+	  "libs": [
+
+		"browser",
+
+		"underscore",
+
+		"jquery",
+
+		"es6",
+
+		"angular"
+
+	  ],
+
+	  "plugins": {
+		"node": {},
+		"complete_strings": {},
+		"requirejs": {
+		  "baseURL": "./",
+		  "paths": {}
+		}
+	  }
+	}
+snippet terndemo
+	{
+
+		"libs": [
+
+			"browser",
+
+			"underscore",
+
+			"jquery",
+
+			"es6"
+
+		],
+
+		"plugins": {
+			"node": {},
+			"complete_strings": {},
+			"requirejs": {
+				"baseURL": "./",
+				"paths": {
+					// 自定义插件（源码自创建或已修改源码）
+					'admin.plugs': 'plugs',
+					'admin.listen': 'listen',
+					'layui': '../plugs/layui/layui',
+					'ueditor': '../plugs/ueditor/ueditor',
+					'template': '../plugs/template/template',
+					'pcasunzips': '../plugs/jquery/pcasunzips',
+					'laydate': '../plugs/layui/laydate/laydate',
+					// 开源插件（未修改源码）
+					'pace': '../plugs/jquery/pace.min',
+					'json': '../plugs/jquery/json2.min',
+					'citys': '../plugs/jquery/jquery.citys',
+					'print': '../plugs/jquery/jquery.PrintArea',
+					'base64': '../plugs/jquery/base64.min',
+					'jquery': '../plugs/jquery/jquery.min',
+					'websocket': '../plugs/socket/websocket',
+					'bootstrap': '../plugs/bootstrap/js/bootstrap.min',
+					'jquery.ztree': '../plugs/ztree/jquery.ztree.all.min',
+					'bootstrap.typeahead': '../plugs/bootstrap/js/bootstrap3-typeahead.min',
+					'zeroclipboard': '../plugs/ueditor/third-party/zeroclipboard/ZeroClipboard.min',
+					'jquery.cookies': '../plugs/jquery/jquery.cookie',
+					'jquery.masonry': '../plugs/jquery/masonry.min'
+
+				}
+			}
+		}
+	}

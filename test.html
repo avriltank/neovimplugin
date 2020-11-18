@@ -1,0 +1,58 @@
+    server {
+    listen 8080;
+        #配置RTMP状态一览HTTP页面=========================================
+        location /stat {
+            rtmp_stat all;
+            rtmp_stat_stylesheet stat.xsl;
+        }
+        location /stat.xsl {
+            root /opt/rtmp/nginx-rtmp-module/;
+        }
+        #配置RTMP状态一览界面结束==========================
+　　　　　
+　　　　　#HTTP协议访问直播流文件配置
+        location /hls {  #添加视频流存放地址。
+                types {
+                    application/vnd.apple.mpegurl m3u8;
+                    video/mp2t ts;
+                }
+                #访问权限开启，否则访问这个地址会报403
+                autoindex on;
+                alias /usr/share/nginx/html/hls;#视频流存放地址，与下面的hls_path相对应，这里root和alias的区别可自行百度
+                expires -1;
+                add_header Cache-Control no-cache;
+                #防止跨域问题
+                add_header 'Access-Control-Allow-Origin' '*';
+                add_header 'Access-Control-Allow-Credentials' 'true';
+                add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
+                add_header 'Access-Control-Allow-Headers' 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type';  
+            }
+    }
+
+}
+#点播/直播功能实现配置rtmp协议
+rtmp {
+    server {
+        listen 1935;
+        chunk_size 4000;
+        application vod {
+            play /usr/share/nginx/html/vod/flvs/;#点播媒体存放目录
+        }
+        application live {
+            live on;
+        }
+　　　　　　#HLS直播配置
+        application hls {
+            live on;
+            hls on;
+            hls_path /usr/share/nginx/html/hls;#视频流存放地址
+            hls_fragment 5s;
+            hls_playlist_length 15s;
+            hls_continuous on; #连续模式。
+            hls_cleanup on;    #对多余的切片进行删除。
+            hls_nested on;     #嵌套模式。
+        }
+    }
+}
+            
+            
